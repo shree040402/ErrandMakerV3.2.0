@@ -1,5 +1,5 @@
 /**
- * Errand Maker v3.2.0 - Professional Edition
+ * Errand Maker v5.0.0 - Professional Edition
  * Architecture: Unified Anchored Panel System, State Machine, ES6 Class
  */
 
@@ -167,7 +167,7 @@ class ErrandMaker {
             pCalc.classList.add('hidden-view'); pCalc.classList.remove('active-view');
             pErrand.classList.remove('hidden-view'); pErrand.classList.add('active-view');
             title.textContent = "Errand Maker"; 
-            badge.textContent = "Version 3.2.0"; 
+            badge.textContent = "Version 5.0.0"; 
             window.location.hash = 'home';
             
             document.getElementById('btn-add-note').style.visibility = 'visible';
@@ -302,7 +302,13 @@ class ErrandMaker {
 
     renderMoods() {
         State.ui.currentView = 'mood'; this.updateSettingsIcon();
-        const themes = [{ id: 'vintage-brew', name: 'Vintage Brew' }, { id: 'aurora-flow', name: 'Aurora Flow' }, { id: 'slate-whisper', name: 'Slate Whisper' }, { id: 'neon-drift', name: 'Neon Drift' }];
+        const themes = [
+            { id: 'vintage-brew', name: 'Vintage Brew' }, 
+            { id: 'aurora-flow', name: 'Aurora Flow' }, 
+            { id: 'slate-whisper', name: 'Slate Whisper' }, 
+            { id: 'neon-drift', name: 'Neon Drift' },
+            { id: 'upside-down', name: 'Upside-Down' }
+        ];
         document.querySelector('#unified-panel .panel-content').innerHTML = `<div class="panel-header">Theme</div><div class="panel-body">${themes.map(t => `<button class="theme-select-btn" onclick="app.setTheme('${t.id}')">${t.name} ${State.settings.theme === t.id ? '(Active)' : ''}</button>`).join('')}</div>`;
     }
     renderDefaults() {

@@ -91,6 +91,74 @@ body.neon-drift {
     --c-status-accent: #00e5ff;
 }
 
+/* NEW: UPSIDE-DOWN THEME (v5.0.0) */
+body.upside-down {
+    --c-bg: #0a0b0d;
+    --c-bg-card: rgba(20, 22, 26, 0.8);
+    --c-text: #d4d4d4;
+    --c-primary: #8b0000;
+    --c-secondary: #5e5e5e;
+    --c-accent: #1a1c20;
+    --c-border: #3a3d42;
+    --c-btn-shadow: #4a0000;
+    --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.6);
+    --c-input-bg: rgba(0, 0, 0, 0.3);
+    --c-status-bg: #1a0000;
+    --c-status-text: #e0d0d0;
+    --c-status-accent: #b30000;
+    
+    background-image: url('/assets/bg-upside-down-world.webp');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Atmospheric Overlays (Dust & Frame) */
+body.upside-down::before,
+body.upside-down::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+body.upside-down::before {
+    background: url('/assets/overlay-dust.png');
+    opacity: 0.12;
+}
+
+body.upside-down::after {
+    background: url('/assets/frame-organic.png');
+    background-size: 100% 100%;
+    opacity: 0.25;
+}
+
+/* Surface Treatments for Cards & Panels */
+body.upside-down .note-card,
+body.upside-down .anchor-panel,
+body.upside-down .auth-card,
+body.upside-down .deduction-panel,
+body.upside-down .score-card-section {
+    background-image: url('/assets/surface-rock.png'), linear-gradient(var(--c-bg-card), var(--c-bg-card));
+    background-blend-mode: overlay;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(139, 0, 0, 0.3);
+}
+
+/* Red Accent Glow on Boundary */
+body.upside-down .top-bar {
+    border-bottom: 2px solid transparent;
+    border-image: url('/assets/glow-red.png') 30 stretch;
+    background: rgba(10, 11, 13, 0.85);
+}
+
+/* Typography refinement for readability */
+body.upside-down .note-header { background: rgba(139, 0, 0, 0.2); }
+body.upside-down .brand h1 { color: #fff; text-shadow: 0 0 10px rgba(139, 0, 0, 0.5); }
+
+
 /* === RESET & GLOBAL NO-SCROLL === */
 * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
 
